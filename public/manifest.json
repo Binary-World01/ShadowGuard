@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "ShadowGuard AI Governance",
+  "version": "1.0.0",
+  "description": "Enterprise-grade Shadow AI protection and governance.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["loader.js"],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "loader.js",
+        "src/popup/index.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
